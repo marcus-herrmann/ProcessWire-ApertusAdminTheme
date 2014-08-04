@@ -1,0 +1,34 @@
+/**
+ * main.scss - admin theme styles for ProcessWire
+ *
+ */
+
+@import 'vars';
+@import 'mixins';
+@import 'reset';
+@import 'jquery-ui';
+@import 'form';
+@import 'inputfields';
+
+
+#masthead {
+	float: left;
+	width: 20%;
+}
+
+#content {
+	position: absolute;
+	left: 20%;
+	width: 80%;
+}
+
+#topnav-mobile,
+.collapse-topnav-menu {
+	display: none;
+}
+
+#footer {
+	position: absolute;
+	bottom: 0;
+	left: 20%;
+}
