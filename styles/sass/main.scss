@@ -9,7 +9,12 @@
 @import 'jquery-ui';
 @import 'form';
 @import 'inputfields';
+@import 'typography';
 
+body {
+	font-family: 'SourceSansProReg', sans-serif;
+	font-size: 15px;
+}
 
 #masthead {
 	float: left;
@@ -31,4 +36,9 @@
 	position: absolute;
 	bottom: 0;
 	left: 20%;
+}
+
+
+#topnav > li {
+	margin: 1em 0
 }

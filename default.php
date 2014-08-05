@@ -16,7 +16,7 @@ if(!isset($content)) $content = '';
 	
 $searchForm = $user->hasPermission('page-edit') ? $modules->get('ProcessPageSearch')->renderSearchForm() : '';
 
-$config->styles->prepend($config->urls->adminTemplates . "styles/sass/main.css?v=7");
+$config->styles->prepend($config->urls->adminTemplates . "styles/main.css");
 $config->styles->append($config->urls->root . "wire/templates-admin/styles/font-awesome/css/font-awesome.min.css"); 
 $config->scripts->append($config->urls->root . "wire/templates-admin/scripts/inputfields.js?v=5"); 
 $config->scripts->append($config->urls->adminTemplates . "scripts/main.js?v=5");
@@ -44,13 +44,14 @@ $helpers = new AdminThemeApertusHelpers();
 </head>
 <body class='<?php echo $helpers->renderBodyClass(); ?>'>
 
-	<?php echo $helpers->renderAdminNotices($notices); ?>
+
 
 	<div id="masthead" class="masthead ui-helper-clearfix">
 		<div class="container">
 
 			<a id='logo' href='<?php echo $config->urls->admin?>'><img width='130' src="<?php echo $config->urls->adminTemplates?>styles/images/logo.png" alt="ProcessWire" /></a>
 
+			<h2>Administer Page</h2>
 			<?php 
 			if($user->isLoggedin()) {
 				echo $searchForm;
@@ -58,9 +59,11 @@ $helpers = new AdminThemeApertusHelpers();
 			}
 			?>
 
-		</div>
+			<?php if($config->debug && $this->user->isSuperuser()) include($config->paths->root . '/wire/templates-admin/debug.inc'); ?>
 
-		<div class="container">
+			<h2>Search Forums</h2>
+			<h2>Useful links</h2>
+
 			<p>
 				<?php if($user->isLoggedin()): ?>
 					<span id='userinfo'>
@@ -75,7 +78,6 @@ $helpers = new AdminThemeApertusHelpers();
 				ProcessWire <?php echo $config->version . ' <!--v' . $config->systemVersion; ?>--> &copy; <?php echo date("Y"); ?>
 			</p>
 
-			<?php if($config->debug && $this->user->isSuperuser()) include($config->paths->root . '/wire/templates-admin/debug.inc'); ?>
 		</div>
 	</div><!--/#masthead-->
 
@@ -94,6 +96,7 @@ $helpers = new AdminThemeApertusHelpers();
 	</div><!--/#breadcrumbs-->
 
 	<div id="content" class="content fouc_fix">
+		<?php echo $helpers->renderAdminNotices($notices); ?>
 		<div class="container">
 
 			<?php 
@@ -105,9 +108,6 @@ $helpers = new AdminThemeApertusHelpers();
 		</div>
 	</div><!--/#content-->
 
-	<div id="footer" class="footer">
-
-	</div><!--/#footer-->
 
 </body>
 </html>
