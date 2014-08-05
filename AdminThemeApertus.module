@@ -23,7 +23,18 @@ class AdminThemeApertus extends AdminTheme implements Module, ConfigurableModule
 	}
 
 	public static function getModuleConfigInputfields(array $data) {
-
+		$inputfields = new InputfieldWrapper();
+		$field = wire('modules')->get('InputfieldRadios');
+		$field->attr('name', 'environment-indicator');
+		$field->label = __('Environment Indicator');
+		$field->addOption('none', __('None'));
+		$field->addOption('production', __('Production'));
+		$field->addOption('staging', __('Staging'));
+		$field->addOption('development', __('Development'));
+		$field->attr('value', isset($data['environment-indicator']) ? $data['environment-indicator'] : 'none');
+		$field->optionColumns = 1;
+		$inputfields->add($field);
+		return $inputfields;
 	}
 }
 
