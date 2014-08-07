@@ -44,12 +44,14 @@ $helpers = new AdminThemeApertusHelpers();
 </head>
 <body class='<?php echo $helpers->renderBodyClass(); ?>'>
 
-
+	<?php
+		$helpers->renderEnvironmentIndicator();
+	?>
 
 	<div id="masthead" class="masthead ui-helper-clearfix">
 		<div class="container">
 
-			<a id='logo' href='<?php echo $config->urls->admin?>'><img width='130' src="<?php echo $config->urls->adminTemplates?>styles/images/logo.png" alt="ProcessWire" /></a>
+			<h1><a id='logo' href='<?php echo $config->urls->admin?>'><img width='130' src="<?php echo $config->urls->adminTemplates?>styles/images/logo.png" alt="ProcessWire" /><?php $helpers->renderSiteName(); ?></a></h1>
 
 			<h2>Administer Page</h2>
 			<?php 
@@ -62,7 +64,12 @@ $helpers = new AdminThemeApertusHelpers();
 			<?php if($config->debug && $this->user->isSuperuser()) include($config->paths->root . '/wire/templates-admin/debug.inc'); ?>
 
 			<h2>Search Forums</h2>
+
+			<?php $helpers->renderForumSearch(); ?>
+
 			<h2>Useful links</h2>
+
+			<?php $helpers->renderUsefulLinks(); ?>
 
 			<p>
 				<?php if($user->isLoggedin()): ?>
@@ -77,6 +84,10 @@ $helpers = new AdminThemeApertusHelpers();
 				<?php endif; ?>
 				ProcessWire <?php echo $config->version . ' <!--v' . $config->systemVersion; ?>--> &copy; <?php echo date("Y"); ?>
 			</p>
+
+			<?php
+				$helpers->renderAdminThemeConfigLink();
+			?>
 
 		</div>
 	</div><!--/#masthead-->

@@ -365,7 +365,82 @@ class AdminThemeApertusHelpers extends WireData {
 		if(wire('config')->js('JqueryWireTabs')) $bodyClass .= " hasWireTabs";
 		return $bodyClass; 
 	}
-	
+
+	/**
+	 * Render the forum search form
+	 *
+	 * @return string
+	 *
+	 */
+	public function renderForumSearch() {
+			echo "<form
+					action='https://processwire.com/talk/index.php?app=core&amp;module=search&amp;do=search'
+					method='post'>
+						<fieldset>
+								<input type='text' name='search_term' tabindex='100'>
+								<input type='submit' value='Search'>
+							</span>
+						</fieldset>
+					</form>";
+	}
+
+	/**
+	 * Render useful links
+	 *
+	 * @return string
+	 *
+	 */
+
+	public function renderUsefulLinks() {
+		echo "<ul>
+				<li><a href='https://processwire.com/api/'>API Documentation</a></li>
+				<li><a href='http://cheatsheet.processwire.com/'>API Cheatsheet</a></li>
+				<li><a href='https://processwire.com/api/selectors/'>Selectors</a></li>
+				<li><a href='http://processwire.com/api/hooks/captain-hook/'>Captain Hook</a></li>
+				<li><a href='https://processwire.com/docs/tutorials/'>Tutorials</a></li>
+			</ul>";
+	}
+
+	/**
+	 * Render site name
+	 *
+	 * @return string
+	 *
+	 */
+
+	public function renderSiteName() {
+		$adminTheme = wire('modules')->get('AdminThemeApertus');
+		echo $adminTheme->sitename;
+	}
+
+
+	/**
+	 * Render environment indicator
+	 *
+	 * @return string
+	 *
+	 */
+
+	public function renderEnvironmentIndicator() {
+		$environment = wire('modules')->get('AdminThemeApertus')->environmentindicator;
+
+		if ($environment !== "none") {
+			echo "<div class='module-environment module-environment--" .  strtolower($environment) . "'>" .$environment . "</div>";
+		}
+	}
+
+
+	/**
+	 * Render admin theme config link
+	 *
+	 * @return string
+	 *
+	 */
+
+	public function renderAdminThemeConfigLink() {
+		echo "<a href='" . wire("config")->urls->admin . "module/edit?name=AdminThemeApertus'><i class='fa fa-tasks'></i> Configure Apertus</a>";
+	}
+
 	/**
 	 * Render the required javascript 'config' variable for the document <head>
 	 *
