@@ -409,8 +409,8 @@ class AdminThemeApertusHelpers extends WireData {
 	 */
 
 	public function renderSiteName() {
-		$adminTheme = wire('modules')->get('AdminThemeApertus');
-		echo $adminTheme->sitename;
+		$adminThemeName = (wire('modules')->get('AdminThemeApertus')->sitename ? wire('modules')->get('AdminThemeApertus')->sitename : 'ProcessWire' );
+		echo $adminThemeName;
 	}
 
 
