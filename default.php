@@ -36,9 +36,7 @@ $helpers = new AdminThemeApertusHelpers();
 	<title><?php echo $helpers->renderBrowserTitle(); ?></title>
 
 	<script type="text/javascript"><?php echo $helpers->renderJSConfig(); ?></script>
-
 	<?php foreach($config->styles as $file) echo "\n\t<link type='text/css' href='$file' rel='stylesheet' />"; ?>
-
 	<?php foreach($config->scripts as $file) echo "\n\t<script type='text/javascript' src='$file'></script>"; ?>
 
 </head>
@@ -48,66 +46,82 @@ $helpers = new AdminThemeApertusHelpers();
 		$helpers->renderEnvironmentIndicator();
 	?>
 
-	<div id="masthead" class="masthead ui-helper-clearfix">
+	<div class="header-main ui-helper-clearfix">
 		<div class="container">
 
-			<h1><a id='logo' href='<?php echo $config->urls->admin?>'><img width='130' src="<?php echo $config->urls->adminTemplates?>styles/images/logo.png" alt="ProcessWire" /><?php $helpers->renderSiteName(); ?></a></h1>
+			<h1 class="logo-main">
+				<a href='<?php echo $config->urls->admin?>'>
+					<?php $helpers->renderSiteName(); ?>
+				</a>
+			</h1>
 
-			<h2>Administer Page</h2>
+			<section class="module-pagetree">
+			<h2>Administer Project</h2>
 			<?php 
 			if($user->isLoggedin()) {
 				echo $searchForm;
 				echo "\n\n<ul id='topnav'>" . $helpers->renderTopNavItems() . "</ul>";
 			}
 			?>
+			</section>
 
-			<?php if($config->debug && $this->user->isSuperuser()) include($config->paths->root . '/wire/templates-admin/debug.inc'); ?>
+			<?php if($config->debug && $this->user->isSuperuser())
+				include($config->paths->root . '/wire/templates-admin/debug.inc'); ?>
 
+			<section class="module-forumsearch">
 			<h2>Search Forums</h2>
-
 			<?php $helpers->renderForumSearch(); ?>
+			</section>
 
+			<section class="module-usefullinks">
 			<h2>Useful links</h2>
-
 			<?php $helpers->renderUsefulLinks(); ?>
+			</section>
 
-			<p>
-				<?php if($user->isLoggedin()): ?>
-					<span id='userinfo'>
-				<i class='fa fa-user'></i>
-						<?php
-						if($user->hasPermission('profile-edit')): ?>
-							<i class='fa fa-angle-right'></i> <a class='action' href='<?php echo $config->urls->admin; ?>profile/'><?php echo $user->name; ?></a> <i class='fa fa-angle-right'></i>
-						<?php endif; ?>
-						<a class='action' href='<?php echo $config->urls->admin; ?>login/logout/'><?php echo $helpers->_('Logout'); ?></a>
-			</span>
-				<?php endif; ?>
-				ProcessWire <?php echo $config->version . ' <!--v' . $config->systemVersion; ?>--> &copy; <?php echo date("Y"); ?>
-			</p>
-
+			<section class="module-apertus-meta">
 			<?php
 				$helpers->renderAdminThemeConfigLink();
 			?>
+			</section>
+
+			<section class="module-processwire-meta">
+				<?php if($user->isLoggedin()): ?>
+					<span id='userinfo'>
+					<i class='fa fa-user'></i>
+						<?php if($user->hasPermission('profile-edit')): ?>
+							<i class='fa fa-angle-right'></i>
+							<a class='action' href='<?php echo $config->urls->admin; ?>profile/'>
+								<?php echo $user->name; ?></a> <i class='fa fa-angle-right'></i>
+						<?php endif; ?>
+						<a class='action' href='<?php echo $config->urls->admin; ?>login/logout/'>
+						<?php echo $helpers->_('Logout'); ?></a>
+					</span>
+				<?php endif; ?>
+				ProcessWire
+				<?php echo $config->version . ' <!--v' . $config->systemVersion; ?>--> &copy; <?php echo date("Y"); ?>
+			</section>
 
 		</div>
-	</div><!--/#masthead-->
+	</div>
 
-	<div id='breadcrumbs'>
-		<div class='container'>
 
-			<?php 
-			if($page->process == 'ProcessPageList' || ($page->name == 'lister' && $page->parent->name == 'page')) {
-				echo $helpers->renderAdminShortcuts(); 
-			}
-			?>
-
-			<ul class='nav'><?php echo $helpers->renderBreadcrumbs(); ?></ul>
-
-		</div>
-	</div><!--/#breadcrumbs-->
-
-	<div id="content" class="content fouc_fix">
+	<div id="content" class="main-content fouc_fix">
 		<?php echo $helpers->renderAdminNotices($notices); ?>
+
+		<div class="module-breadcrumbs">
+			<div class='container'>
+
+				<?php
+				if($page->process == 'ProcessPageList' || ($page->name == 'lister' && $page->parent->name == 'page')) {
+					echo $helpers->renderAdminShortcuts();
+				}
+				?>
+
+				<ul class='nav'><?php echo $helpers->renderBreadcrumbs(); ?></ul>
+
+			</div>
+		</div><!--/#breadcrumbs-->
+
 		<div class="container">
 
 			<?php 

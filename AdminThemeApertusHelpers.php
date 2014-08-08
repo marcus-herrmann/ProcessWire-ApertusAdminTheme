@@ -377,6 +377,9 @@ class AdminThemeApertusHelpers extends WireData {
 					action='https://processwire.com/talk/index.php?app=core&amp;module=search&amp;do=search'
 					method='post'>
 						<fieldset>
+							<label for='ProcessPageSearchQuery'>
+								<i class='fa fa-search'></i>
+								</label>
 								<input type='text' name='search_term' tabindex='100'>
 								<input type='submit' value='Search'>
 							</span>
@@ -400,24 +403,24 @@ class AdminThemeApertusHelpers extends WireData {
 			'Captain Hook' => 'http://processwire.com/api/hooks/captain-hook/',
 			'Tutorials' => 'https://processwire.com/docs/tutorials/');
 
-		echo "<ul>";
+		echo "<ul class='module-usefullinks'>";
 		foreach ($links as $label => $url) {
-			echo "<li><a href='" . $url . "'>" . $label . "</a></li>";
+			echo "<li  class='module-usefullinks__item'><a href='" . $url . "'>" . $label . "</a></li>";
 		}
 		echo "</ul>";
 
 	}
 
 	/**
-	 * Render site name
+	 * Render site name, when empty default to "ProcessWire"
 	 *
 	 * @return string
 	 *
 	 */
 
 	public function renderSiteName() {
-		$adminThemeName = (wire('modules')->get('AdminThemeApertus')->sitename ? wire('modules')->get('AdminThemeApertus')->sitename : 'ProcessWire' );
-		echo $adminThemeName;
+		echo (wire('modules')->get('AdminThemeApertus')->sitename ?
+			  wire('modules')->get('AdminThemeApertus')->sitename : 'ProcessWire' );
 	}
 
 
