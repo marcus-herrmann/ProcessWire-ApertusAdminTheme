@@ -537,7 +537,7 @@ $ui-tabs-container-bg: transparentize($subtle-bg, 0.3); /* note same as item nes
 		padding-right: 1em;
 		padding-left: 0.5em;
 		border-bottom: 1px solid $subtle-border;
-		@include border-radius(0);
+		border-radius: 0;
 
 		> li {
 			position: relative;
@@ -595,3 +595,6 @@ $ui-tabs-container-bg: transparentize($subtle-bg, 0.3); /* note same as item nes
 	margin-bottom: 0;
 }
 
+input[type="text"] {
+	width: 100%;
+}

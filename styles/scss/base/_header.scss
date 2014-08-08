@@ -1,0 +1,16 @@
+.header-main {
+	float: left;
+	width: 20%;
+	padding: 10px;
+	position: relative;
+	min-height: 2.6em;
+}
+
+#ProcessPageSearchAutocomplete.ui-autocomplete {
+	padding-right: 0;
+	max-height: 9999px;
+	height: auto; 
+	box-shadow: none; 
+
+}
+
