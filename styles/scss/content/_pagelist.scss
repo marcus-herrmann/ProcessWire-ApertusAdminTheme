@@ -3,7 +3,7 @@
  *
  */
 
-.content {
+.main-content {
 
 	/**
 	 * Actions: like the "|edit|view|new" in the PageList
@@ -45,8 +45,7 @@
 	.PageListMoveNote a {
 		/* action links */
 		color: $action-link-color; 
-		background: $action-link-bg;
-		padding: 0 4px 0 4px; 
+		padding: 0 5px;
 		display: inline-block;
 		font-size: $action-link-font-size; 
 		border-radius: 3px; 
@@ -93,13 +92,12 @@
 	.PageList {
 
 		.PageListItem {
-			border-bottom: 1px solid lighten($subtle-border, 4%); 
+			border-bottom: 1px dotted #ccc;
 			padding-top: 0.35em;
 			padding-bottom: 0.35em; 
 			line-height: 1.3em; 
 
 			> a.PageListPage { 
-				color: $pagelist-link-color; 
 				opacity: 1.0;
 
 				&:hover {
@@ -135,8 +133,7 @@
 
 		.PageListItemOpen {
 			> a.PageListPage {
-				color: $pagelist-link-open-color; 
-				background-color: $pagelist-link-open-bg; 
+				background-color: $pagelist-link-open-bg;
 			}
 		}
 

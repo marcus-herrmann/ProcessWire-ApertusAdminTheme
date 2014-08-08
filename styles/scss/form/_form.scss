@@ -1,4 +1,3 @@
-
 /**
  * General form styles
  *
@@ -63,5 +62,13 @@ select,
 textarea,
 table {
 	height: auto;
+}
+
+input[type="text"], input[type="password"], input[type="submit"] {
+	line-height: 28px;
+	height: 28px;
+	font-family: inherit;
+	padding: 2px 3px;
+	border-radius: 3px;
 }
 

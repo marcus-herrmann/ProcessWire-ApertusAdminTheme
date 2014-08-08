@@ -39,14 +39,44 @@ $helpers = new AdminThemeApertusHelpers();
 	<?php foreach($config->styles as $file) echo "\n\t<link type='text/css' href='$file' rel='stylesheet' />"; ?>
 	<?php foreach($config->scripts as $file) echo "\n\t<script type='text/javascript' src='$file'></script>"; ?>
 
+	<style>
+		a,
+		.Inputfields .InputfieldStateToggle i.toggle-icon,
+		input[type="text"],
+		input[type="password"] {
+			color: <?php $helpers->renderMainColor(); ?>;
+		}
+
+		.header-main,
+		.header-main a {
+			color: #fff;
+		}
+
+		.header-main {
+			background: <?php $helpers->renderMainColor(); ?>;
+		}
+
+		li.action a, .actions a,
+		.PageList .actions a,
+		.PageListMoveNote a,
+		.header-main {
+			background: <?php $helpers->renderMainColor(); ?>;
+		}
+
+		input[type="text"],
+		input[type="password"] {
+			border: 1px solid <?php $helpers->renderMainColor(); ?>;
+		}
+
+	</style>
+
 </head>
 <body class='<?php echo $helpers->renderBodyClass(); ?>'>
 
-	<?php
-		$helpers->renderEnvironmentIndicator();
-	?>
-
 	<div class="header-main ui-helper-clearfix">
+		<?php
+		$helpers->renderEnvironmentIndicator();
+		?>
 		<div class="container">
 
 			<h1 class="logo-main">
@@ -56,8 +86,7 @@ $helpers = new AdminThemeApertusHelpers();
 			</h1>
 
 			<section class="module-pagetree">
-			<h2>Administer Project</h2>
-			<?php 
+			<?php
 			if($user->isLoggedin()) {
 				echo $searchForm;
 				echo "\n\n<ul id='topnav'>" . $helpers->renderTopNavItems() . "</ul>";
@@ -85,18 +114,6 @@ $helpers = new AdminThemeApertusHelpers();
 			</section>
 
 			<section class="module-processwire-meta">
-				<?php if($user->isLoggedin()): ?>
-					<span id='userinfo'>
-					<i class='fa fa-user'></i>
-						<?php if($user->hasPermission('profile-edit')): ?>
-							<i class='fa fa-angle-right'></i>
-							<a class='action' href='<?php echo $config->urls->admin; ?>profile/'>
-								<?php echo $user->name; ?></a> <i class='fa fa-angle-right'></i>
-						<?php endif; ?>
-						<a class='action' href='<?php echo $config->urls->admin; ?>login/logout/'>
-						<?php echo $helpers->_('Logout'); ?></a>
-					</span>
-				<?php endif; ?>
 				ProcessWire
 				<?php echo $config->version . ' <!--v' . $config->systemVersion; ?>--> &copy; <?php echo date("Y"); ?>
 			</section>
@@ -105,7 +122,7 @@ $helpers = new AdminThemeApertusHelpers();
 	</div>
 
 
-	<div id="content" class="main-content fouc_fix">
+	<div class="main-content fouc_fix">
 		<?php echo $helpers->renderAdminNotices($notices); ?>
 
 		<div class="module-breadcrumbs">

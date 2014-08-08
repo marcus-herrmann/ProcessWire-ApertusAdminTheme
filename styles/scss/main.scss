@@ -11,38 +11,13 @@
 @import 'form/form';
 @import 'form/inputfields';
 @import 'base/header';
+@import 'content/_base';
+@import 'content/_pagelist';
 @import "modules/_breadcrumbs";
 @import "modules/_logo";
 @import "modules/_pagetree";
 @import "modules/_usefullinks";
+@import "modules/_forumsearch";
 @import "modules/_apertus-meta";
 @import "modules/_processwire-meta";
-
-
-body {
-	font-family: 'SourceSansProReg', sans-serif;
-	font-size: 15px;
-}
-
-
-#content {
-	position: absolute;
-	left: 20%;
-	width: 80%;
-}
-
-#topnav-mobile,
-.collapse-topnav-menu {
-	display: none;
-}
-
-#footer {
-	position: absolute;
-	bottom: 0;
-	left: 20%;
-}
-
-
-#topnav > li {
-	margin: 1em 0
-}
+@import "modules/_environmentindicator";

@@ -1,0 +1,13 @@
+/**
+ * Base content styles
+ *
+ */
+
+#content,
+.main-content {
+	position: absolute;
+	left: 300px;
+	right: 0;
+	width: auto;
+	padding: $padding;
+}

@@ -377,12 +377,8 @@ class AdminThemeApertusHelpers extends WireData {
 					action='https://processwire.com/talk/index.php?app=core&amp;module=search&amp;do=search'
 					method='post'>
 						<fieldset>
-							<label for='ProcessPageSearchQuery'>
-								<i class='fa fa-search'></i>
-								</label>
-								<input type='text' name='search_term' tabindex='100'>
-								<input type='submit' value='Search'>
-							</span>
+							<input type='text' name='search_term' tabindex='100'>
+							<input type='submit' value='Search'>
 						</fieldset>
 					</form>";
 	}
@@ -425,6 +421,19 @@ class AdminThemeApertusHelpers extends WireData {
 
 
 	/**
+	 * Render main color for inline css use
+	 *
+	 * @return string
+	 *
+	 */
+
+	public function renderMainColor() {
+		echo (wire('modules')->get('AdminThemeApertus')->color ?
+			wire('modules')->get('AdminThemeApertus')->color : '#2c3e50' );
+	}
+
+
+	/**
 	 * Render environment indicator
 	 *
 	 * @return string
@@ -435,7 +444,7 @@ class AdminThemeApertusHelpers extends WireData {
 		$environment = wire('modules')->get('AdminThemeApertus')->environmentindicator;
 
 		if ($environment !== "none") {
-			echo "<div class='module-environment module-environment--" .  strtolower($environment) . "'>" .$environment . "</div>";
+			echo "<div class='module-environmentindicator module-environmentindicator--" .  strtolower($environment) . "'>" .$environment . "</div>";
 		}
 	}
 

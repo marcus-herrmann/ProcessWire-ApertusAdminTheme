@@ -1,9 +1,19 @@
+/**
+ * Header
+ *
+ */
+
 .header-main {
 	float: left;
-	width: 20%;
-	padding: 10px;
-	position: relative;
-	min-height: 2.6em;
+	width: 300px;
+	position: fixed;
+	top: 0;
+	bottom: 0;
+	overflow: auto;
+
+	.container {
+		padding: $padding;
+	}
 }
 
 #ProcessPageSearchAutocomplete.ui-autocomplete {
@@ -14,3 +24,6 @@
 
 }
 
+.collapse-topnav-menu {
+	display: none;
+}
