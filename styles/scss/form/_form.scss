@@ -64,11 +64,36 @@ table {
 	height: auto;
 }
 
-input[type="text"], input[type="password"], input[type="submit"] {
+input[type="text"],
+input[type="password"],
+input[type="submit"] {
 	line-height: 28px;
 	height: 28px;
-	font-family: inherit;
-	padding: 2px 3px;
-	border-radius: 3px;
 }
 
+button,
+.ui-button {
+	margin: 1em 0;
+	padding: 10px 20px;
+	border: none;
+	background: #000;
+	color: #fff;
+}
+
+#ProcessPageSearchStatus {
+	display: none;
+}
+
+#ProcessPageSearchAutocomplete.ui-autocomplete {
+	max-width: 185px;
+}
+
+#ProcessPageSearchAutocomplete > li a {
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+#ProcessFieldList,
+#ProcessListerResults {
+	margin-bottom: 1em;
+}

@@ -399,7 +399,7 @@ class AdminThemeApertusHelpers extends WireData {
 			'Captain Hook' => 'http://processwire.com/api/hooks/captain-hook/',
 			'Tutorials' => 'https://processwire.com/docs/tutorials/');
 
-		echo "<ul class='module-usefullinks'>";
+		echo "<ul class='module-usefullinks-list'>";
 		foreach ($links as $label => $url) {
 			echo "<li  class='module-usefullinks__item'><a href='" . $url . "'>" . $label . "</a></li>";
 		}
@@ -444,7 +444,7 @@ class AdminThemeApertusHelpers extends WireData {
 		$environment = wire('modules')->get('AdminThemeApertus')->environmentindicator;
 
 		if ($environment !== "none") {
-			echo "<div class='module-environmentindicator module-environmentindicator--" .  strtolower($environment) . "'>" .$environment . "</div>";
+			echo "<div class='module-environmentindicator module-environmentindicator--" .  strtolower($environment) . "'><i class='fa fa-code'></i> " .$environment . "</div>";
 		}
 	}
 
@@ -457,7 +457,7 @@ class AdminThemeApertusHelpers extends WireData {
 	 */
 
 	public function renderAdminThemeConfigLink() {
-		echo "<a href='" . wire("config")->urls->admin . "module/edit?name=AdminThemeApertus'><i class='fa fa-tasks'></i> Configure Apertus</a>";
+		echo "<a href='" . wire("config")->urls->admin . "module/edit?name=AdminThemeApertus'><i class='fa fa-tasks'></i> Configure Admin Theme</a>";
 	}
 
 	/**

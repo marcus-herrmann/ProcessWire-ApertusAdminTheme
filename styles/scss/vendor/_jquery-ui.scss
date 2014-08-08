@@ -786,10 +786,11 @@ body .ui-tooltip {
 /* Component containers
 ----------------------------------*/
 .ui-widget {
-	font-size: 1.1em;
+	font-size: 15px;
 }
 .ui-widget .ui-widget {
-	font-size: 1em;
+	font-size: 15px;
+	font-weight: 400 !important;
 }
 .ui-widget input,
 .ui-widget select,
@@ -806,8 +807,6 @@ body .ui-tooltip {
 	color: #222222;
 }
 .ui-widget-header {
-	border: 1px solid #aaaaaa;
-	background: #cccccc url(images/ui-bg_highlight-soft_75_cccccc_1x100.png) 50% 50% repeat-x;
 	color: #222222;
 	font-weight: bold;
 }
@@ -866,11 +865,25 @@ body .ui-tooltip {
 
 /* Interaction Cues
 ----------------------------------*/
+
+#notices {
+	margin-right: 90px;
+	margin-bottom: $padding;
+
+	.container {
+		padding: $padding/2;
+	}
+
+	.notice-remove {
+		float: right;
+	}
+}
+
 .ui-state-highlight,
 .ui-widget-content .ui-state-highlight,
 .ui-widget-header .ui-state-highlight {
 	border: 1px solid #fcefa1;
-	background: #fbf9ee url(images/ui-bg_glass_55_fbf9ee_1x400.png) 50% 50% repeat-x;
+	background: #fbf9ee;
 	color: #363636;
 }
 .ui-state-highlight a,
@@ -903,8 +916,8 @@ body .ui-tooltip {
 .ui-priority-secondary,
 .ui-widget-content .ui-priority-secondary,
 .ui-widget-header .ui-priority-secondary {
-	opacity: .7;
-	filter:Alpha(Opacity=70);
+	opacity: .5;
+	filter:Alpha(Opacity=50);
 	font-weight: normal;
 }
 .ui-state-disabled,
@@ -1173,5 +1186,9 @@ body .ui-tooltip {
 	opacity: .8;
 	filter: Alpha(Opacity=70);
 	border-radius: 8px;
+}
+
+.ui-corner-all {
+	width: auto !important;
 }
 

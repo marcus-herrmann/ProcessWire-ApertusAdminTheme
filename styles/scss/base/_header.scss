@@ -14,6 +14,10 @@
 	.container {
 		padding: $padding;
 	}
+
+	.modal & {
+		display: none;
+	}
 }
 
 #ProcessPageSearchAutocomplete.ui-autocomplete {

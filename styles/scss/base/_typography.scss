@@ -52,5 +52,12 @@ body {
 	font-family: 'Source_Sans_Pro', sans-serif;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
-	font-size: 15px;
+	font-size: 16px;
+	line-height: 1.4;
+}
+
+.section-headline {
+	font-weight: 600;
+	font-size: 18px;
+	margin-bottom: .5em;
 }

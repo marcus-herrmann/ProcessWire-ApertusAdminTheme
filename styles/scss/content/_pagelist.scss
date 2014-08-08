@@ -52,15 +52,7 @@
 		border: $action-link-border !important; 
 		font-weight: $bold-weight; 
 	}
-		li.action a:hover, .actions a:hover,
-		.PageList .actions a:hover,
-		.PageListMoveNote a:hover {
-			/* action links hovered */
-			color: $action-link-hover-color; 
-			background: $action-link-hover-bg; 
-			border: $action-link-hover-border; 
-		}
-		
+
 	.PageListMoveNote {
 		text-transform: lowercase; 
 		cursor: move; 

@@ -3,49 +3,59 @@
  *
  */
 
-.InputfieldForm {
+.Inputfields > li.Inputfield {
+	margin-bottom: 1em;
+}
 
+.InputfieldForm {
 	margin-bottom: 1em;
 
 	.Inputfields,
 	.Inputfields > .Inputfield {
 		list-style: none;
-		padding: 0;
 	}
+
+	&#ProcessPageEdit {
+		.Inputfields,
+		.Inputfields > .Inputfield {
+			padding: 0 0 1.5em 0;
+		}
+	}
+
 
 	.Inputfields {
 
 		.Inputfields {
 			/* nested .Inputfields list needs no bottom margin since it'll already be offset from the parent's padding */
-			margin-bottom: 0; 
+			margin-bottom: 0;
 		}
 
 		> .InputfieldColumnWidth {
 			/* an Inputfield that has a percentage width assigned to it */
-			float: left; 
-			clear: none; 
-			margin-top: 0; 
+			float: left;
+			clear: none;
+			margin-top: 0;
 		}
 
 		.InputfieldColumnWidthFirst,
 		.InputfieldColumnWidth + .InputfieldSubmit {
 			/* first Inputfield with a percent width... */
 			/* ...or the last percentage-width Inputifeld before the submit button */
-			clear: both; 
-			margin-left: 0; 
+			clear: both;
+			margin-left: 0;
 		}
-	    
-		.InputfieldColumnWidthFirstTmp, 
+
+		.InputfieldColumnWidthFirstTmp,
 		.InputfieldColumnWidthFirst.InputfieldStateHidden + .Inputfield {
 			/* for support of inputfield dependencies */
 			clear: both;
-			margin-left: 0; 
+			margin-left: 0;
 		}
 
 		.InputfieldColumnWidth:not(.InputfieldColumnWidthFirst) .InputfieldHeader,
 		.InputfieldColumnWidth:not(.InputfieldColumnWidthFirst) .InputfieldContent {
-			/* hide left border */ 
-			margin-left: -1px; 
+			/* hide left border */
+			margin-left: -1px;
 		}
 
 		/**
@@ -65,7 +75,7 @@
 			/* last child element in an Inputfield content needs no margin since it is already padded */
 			margin-bottom: 0;
 		}
-    
+
 	}
 
 }
@@ -81,19 +91,19 @@
 	.Inputfield {
 		margin-bottom: -1px; /* non doubled border */
 		margin-top: 0;
-		background: $text-bg; 
-		color: $text-color; 
+		background: $text-bg;
+		color: $text-color;
 
 		p.notes {
-			margin-bottom: 0; 
+			margin-bottom: 0;
 		}
 
 		&.ui-state-error {
-			border: none; 
+			border: none;
 		}
 
 		select + ol {
-			/* i.e. asmSelect */ 
+			/* i.e. asmSelect */
 			margin-top: 0.1em;
 		}
 
@@ -101,7 +111,7 @@
 
 	> .Inputfield {
 		display: block;
-		clear: both; 
+		clear: both;
 	}
 
 	.InputfieldStateToggle {
@@ -110,19 +120,19 @@
 		span.ui-icon:first-child,
 		i.toggle-icon {
 			/* the open/close icon that goes with most Inputfields */
-			float: right; 
-			padding-right: 0.25em; 
+			float: right;
+			padding-right: 0.25em;
 		}
 		i.toggle-icon {
-			padding-right: 0.5em; 
-			color: lighten($label-link-color, 60%); 
-			line-height: 1.7em; 
+			padding-right: 0.5em;
+			color: lighten($label-link-color, 60%);
+			line-height: 1.7em;
 		}
 
 		.ui-icon + .ui-icon,
 		i + i {
-			margin-right: 0.5em; 
-			margin-left: none; 
+			margin-right: 0.5em;
+			margin-left: none;
 		}
 	}
 
@@ -132,15 +142,13 @@
 			/* different style for collapsed header */
 			display: block;
 			padding-bottom: 0.75em;
-			background: $label-link-collapsed-bg; 
-			border: 1px solid $subtle-border; 
-			color: $label-link-collapsed-color; 
-		
+			background: $label-link-collapsed-bg;
+			border: 1px solid $subtle-border;
+			color: $label-link-collapsed-color;
+
 			&:hover {
 				/* style for collapsed header when hovered */
-				color: $label-link-hover-color; 
-				border-color: $subtle-border; 
-				background: $text-bg; 
+				text-decoration: underline;
 			}
 
 			/* Add ellipsis to collapsed fields per ceberlin */
@@ -157,24 +165,25 @@
 
 	.InputfieldHeader,
 	.InputfieldWrapper > .description {
-		background: $label-link-bg; 
-		border: 1px solid $subtle-border; 
-		border-bottom: none; 
-		color: $label-link-color; 
+		background: $label-link-bg;
+		border: 1px solid $subtle-border;
+		border-bottom: none;
+		color: $label-link-color;
+		padding-bottom: 1em;
 	}
 		.InputfieldHeader:hover {
-			color: $label-link-hover-color; 
+			text-decoration: underline;
 		}
 		.InputfieldWrapper > .description {
 			margin: 0;
-			padding-bottom: 1em; 
-			margin-bottom: -1em; 
+			padding-bottom: 1em;
+			margin-bottom: -1em;
 		}
 
 	.InputfieldHeader + .InputfieldContent {
 		border: 1px solid $subtle-border;
-		border-top: none; 
-		background: $text-bg; 
+		border-top: none;
+		background: $text-bg;
 
 	}
 
@@ -184,11 +193,11 @@
 	 */
 
 	.InputfieldMarkup .InputfieldContent {
-		border: 1px solid $subtle-border; 
-		margin-top: 1em; 
+		border: 1px solid $subtle-border;
+		margin-top: 1em;
 	}
 		.InputfieldMarkup .InputfieldHeader + .InputfieldContent {
-			border-top: none; 
+			border-top: none;
 			margin-top: 0;
 			padding-top: 0;
 		}
@@ -205,46 +214,46 @@
 
 			> .InputfieldHeader {
 				border: none;
-				background: $item-header-bg; 
-				color: $item-header-color; 
+				background: $item-header-bg;
+				color: $item-header-color;
 
 				a {
-					color: $item-header-color; 
-					cursor: pointer; 
-					
+					color: $item-header-color;
+					cursor: pointer;
+
 					&:hover {
-						background: $item-header-hover-bg; 
-						color: $item-header-hover-color; 
-						border: none; 
+						background: $item-header-hover-bg;
+						color: $item-header-hover-color;
+						border: none;
 					}
 				}
-					
+
 				i.toggle-icon {
-					color: $item-header-color; 
+					color: $item-header-color;
 				}
 
 				.ui-icon {
-					margin-top: 3px; 
+					margin-top: 3px;
 				}
 
 				&.ui-state-error {
-					text-decoration: line-through; 
-					background: $error-bg; 
-					border: none; 
+					text-decoration: line-through;
+					background: $error-bg;
+					border: none;
 				}
 
 				.InputfieldRepeaterTrash {
-					right: 2em; 
+					right: 2em;
 				}
 			}
 
 			> .InputfieldContent {
 				padding: 0;
-				border: none; 
+				border: none;
 			}
 
 			&.InputfieldStateCollapsed {
-				margin-bottom: 1em; 
+				margin-bottom: 1em;
 			}
 		}
 	}
@@ -259,10 +268,10 @@
 			margin-top: 0;
 		}
 		.InputfieldFileItem {
-			border: $item-border; 
+			border: $item-border;
 
 			.ui-widget-content {
-				border: none; 
+				border: none;
 			}
 		}
 	}
@@ -272,26 +281,11 @@
 		.InputfieldItemHeader {
 			/* file or repeater item header */
 			border: none;
-			background: $item-header-bg; 
-			color: $item-header-color; 
+
 			cursor: move;
 			font-weight: $normal-weight;
 
-			a {
-				/* link in file or repeater item header */
-				color: $item-header-color; /* WHITE */
-			}
 
-			&:hover {
-				/* file or repeater item header in hover state */
-				background: $item-header-hover-bg; 
-				color: $item-header-hover-color; 
-				border: none; 
-
-				a {
-					color: $item-header-hover-color; 
-				}
-			}
 
 			.ui-icon {
 				margin-top: 3px; 
@@ -429,7 +423,7 @@
 .InputfieldForm .Inputfields .InputfieldButton {
 	/* enable horizontal stack of buttons */
 	margin-top: 0;
-	padding-top: 0;
+	padding: 0 0 .25em;
 	clear: none; 
 	background: none; 
 
@@ -446,6 +440,10 @@
 		background: none; 
 		border: none; 
 	}
+}
+
+.InputfieldForm label.InputfieldHeader {
+	padding: 0 0 .5em;
 }
 
 
@@ -511,7 +509,7 @@ $ui-tabs-container-bg: transparentize($subtle-bg, 0.3); /* note same as item nes
 		background: $ui-tabs-container-bg;
 		padding-left: 1em;
 		padding-right: 1em;
-		padding-bottom: 0.5em;
+		padding-bottom: 1em;
 		margin-bottom: 0;
 	}
 }
@@ -582,11 +580,28 @@ $ui-tabs-container-bg: transparentize($subtle-bg, 0.3); /* note same as item nes
 	}
 }
 
+input#ProcessPageSearchSubmit {
+	display: block;
+}
+
+#ProcessPageSearchQuery {
+	float: left;
+}
+
+label[for="ProcessPageSearchQuery"] {
+	display: none;
+}
+
 .ui-tabs-panel,
 #content .ui-tabs-panel {
 	margin-bottom: 0;
 }
 
-input[type="text"] {
-	width: 100%;
+.header-main input[type="text"] {
+	width: 72%;
+}
+
+
+p.description {
+	padding: 0 0 1em 0;
 }

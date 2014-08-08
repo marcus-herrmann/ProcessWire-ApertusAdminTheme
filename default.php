@@ -56,15 +56,19 @@ $helpers = new AdminThemeApertusHelpers();
 			background: <?php $helpers->renderMainColor(); ?>;
 		}
 
+		button,
+		.ui-button,
 		li.action a, .actions a,
 		.PageList .actions a,
 		.PageListMoveNote a,
-		.header-main {
+		.header-main,
+		ul.WireTabs li .on {
 			background: <?php $helpers->renderMainColor(); ?>;
 		}
 
 		input[type="text"],
-		input[type="password"] {
+		input[type="password"],
+		textarea {
 			border: 1px solid <?php $helpers->renderMainColor(); ?>;
 		}
 
@@ -98,12 +102,12 @@ $helpers = new AdminThemeApertusHelpers();
 				include($config->paths->root . '/wire/templates-admin/debug.inc'); ?>
 
 			<section class="module-forumsearch">
-			<h2>Search Forums</h2>
+			<h2 class="section-headline">Search Forums</h2>
 			<?php $helpers->renderForumSearch(); ?>
 			</section>
 
 			<section class="module-usefullinks">
-			<h2>Useful links</h2>
+			<h2 class="section-headline">Useful links</h2>
 			<?php $helpers->renderUsefulLinks(); ?>
 			</section>
 
@@ -148,7 +152,22 @@ $helpers = new AdminThemeApertusHelpers();
 			?>
 
 		</div>
+
+		<footer class="footer-main">
+
+			<nav class="module-footnav">
+				<ul>
+					<li><a href="<?php echo $config->url ?>" title="View Site"><i class="fa fa-fw fa-eye"></i><span>View Site</span></a></li>
+					<li><a href="<?php echo $config->urls->admin ?>access/users" title="Users"><i class="fa fa-fw fa-user"></i><span>Users</span></a></li>
+					<li><a href="<?php echo $config->urls->admin ?>login/logout" title="Logout"><i class="fa fa-fw fa-power-off"></i><span>Logout</span></a></li>
+				</ul>
+			</nav>
+
+		</footer>
+
 	</div><!--/#content-->
+
+
 
 
 </body>
