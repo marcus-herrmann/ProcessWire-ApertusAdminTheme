@@ -392,13 +392,20 @@ class AdminThemeApertusHelpers extends WireData {
 	 */
 
 	public function renderUsefulLinks() {
-		echo "<ul>
-				<li><a href='https://processwire.com/api/'>API Documentation</a></li>
-				<li><a href='http://cheatsheet.processwire.com/'>API Cheatsheet</a></li>
-				<li><a href='https://processwire.com/api/selectors/'>Selectors</a></li>
-				<li><a href='http://processwire.com/api/hooks/captain-hook/'>Captain Hook</a></li>
-				<li><a href='https://processwire.com/docs/tutorials/'>Tutorials</a></li>
-			</ul>";
+
+		$links = array(
+			'API Documentation' => "https://processwire.com/api/",
+			'API Cheatsheet' => 'http://cheatsheet.processwire.com/',
+			'Selectors' => 'https://processwire.com/api/selectors/',
+			'Captain Hook' => 'http://processwire.com/api/hooks/captain-hook/',
+			'Tutorials' => 'https://processwire.com/docs/tutorials/');
+
+		echo "<ul>";
+		foreach ($links as $label => $url) {
+			echo "<li><a href='" . $url . "'>" . $label . "</a></li>";
+		}
+		echo "</ul>";
+
 	}
 
 	/**
