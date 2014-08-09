@@ -38,6 +38,7 @@ $helpers = new AdminThemeApertusHelpers();
 	<script type="text/javascript"><?php echo $helpers->renderJSConfig(); ?></script>
 	<?php foreach($config->styles as $file) echo "\n\t<link type='text/css' href='$file' rel='stylesheet' />"; ?>
 	<?php foreach($config->scripts as $file) echo "\n\t<script type='text/javascript' src='$file'></script>"; ?>
+	<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
 
 	<style>
 		a,
@@ -92,6 +93,7 @@ $helpers = new AdminThemeApertusHelpers();
 			<section class="module-pagetree">
 			<?php
 			if($user->isLoggedin()) {
+				echo "<h2 class='section-headline'>Search Project</h2>";
 				echo $searchForm;
 				echo "\n\n<ul id='topnav'>" . $helpers->renderTopNavItems() . "</ul>";
 			}
@@ -111,11 +113,15 @@ $helpers = new AdminThemeApertusHelpers();
 			<?php $helpers->renderUsefulLinks(); ?>
 			</section>
 
+			<?php 	if($user->isSuperuser()) : ?>
+
 			<section class="module-apertus-meta">
 			<?php
 				$helpers->renderAdminThemeConfigLink();
 			?>
 			</section>
+
+			<?php endif; ?>
 
 			<section class="module-processwire-meta">
 				ProcessWire
@@ -157,9 +163,11 @@ $helpers = new AdminThemeApertusHelpers();
 
 			<nav class="module-footnav">
 				<ul>
-					<li><a href="<?php echo $config->url ?>" title="View Site"><i class="fa fa-fw fa-eye"></i><span>View Site</span></a></li>
-					<li><a href="<?php echo $config->urls->admin ?>access/users" title="Users"><i class="fa fa-fw fa-user"></i><span>Users</span></a></li>
-					<li><a href="<?php echo $config->urls->admin ?>login/logout" title="Logout"><i class="fa fa-fw fa-power-off"></i><span>Logout</span></a></li>
+					<li><a href="<?php echo $config->urls->admin; ?>module/?reset=2" title="Search for new Modules"><i class="fa fa-refresh"></i><span>Search for new Modules</span></a></li>
+					<li><a href="<?php echo $pages->get('/')->url; ?>" title="View Site"><i class="fa fa-eye"></i><span>View Site</span></a></li>
+
+					<li><a href="<?php echo $config->urls->admin; ?>access/users" title="Users"><i class="fa fa-user"></i><span>Users</span></a></li>
+					<li><a href="<?php echo $config->urls->admin; ?>login/logout" title="Logout"><i class="fa fa-power-off"></i><span>Logout</span></a></li>
 				</ul>
 			</nav>
 

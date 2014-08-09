@@ -581,14 +581,13 @@ $ui-tabs-container-bg: transparentize($subtle-bg, 0.3); /* note same as item nes
 }
 
 input#ProcessPageSearchSubmit {
-	display: block;
+	display: none;
 }
 
-#ProcessPageSearchQuery {
-	float: left;
-}
 
-label[for="ProcessPageSearchQuery"] {
+#ProcessPageSearchForm label[for="ProcessPageSearchQuery"] {
+	opacity: 1;
+	position: relative;
 	display: none;
 }
 
@@ -598,10 +597,25 @@ label[for="ProcessPageSearchQuery"] {
 }
 
 .header-main input[type="text"] {
-	width: 72%;
+	width: 100%;
 }
 
 
 p.description {
 	padding: 0 0 1em 0;
+}
+
+ul.Inputfields #wrap_login_name {
+	margin-right: 5px;
+}
+
+ul.Inputfields li ul.Inputfields > li.Inputfield {
+	border: 1px dotted #ccc;
+	padding: $padding/2 !important;
+}
+
+ul.Inputfields li ul.Inputfields > li.Inputfield.InputfieldSubmit,
+ul.Inputfields li ul.Inputfields > li.Inputfield.Inputfield_reset {
+	border: none;
+	padding: 0;
 }

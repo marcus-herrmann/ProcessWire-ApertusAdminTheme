@@ -401,7 +401,7 @@ class AdminThemeApertusHelpers extends WireData {
 
 		echo "<ul class='module-usefullinks-list'>";
 		foreach ($links as $label => $url) {
-			echo "<li  class='module-usefullinks__item'><a href='" . $url . "'>" . $label . "</a></li>";
+			echo "<li  class='module-usefullinks__item'><i class='fa fa-book'></i> <a href='" . $url . "'>" . $label . "</a></li>";
 		}
 		echo "</ul>";
 
@@ -443,7 +443,7 @@ class AdminThemeApertusHelpers extends WireData {
 	public function renderEnvironmentIndicator() {
 		$environment = wire('modules')->get('AdminThemeApertus')->environmentindicator;
 
-		if ($environment !== "none") {
+		if ($environment) {
 			echo "<div class='module-environmentindicator module-environmentindicator--" .  strtolower($environment) . "'><i class='fa fa-code'></i> " .$environment . "</div>";
 		}
 	}

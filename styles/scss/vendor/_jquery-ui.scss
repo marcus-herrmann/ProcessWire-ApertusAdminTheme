@@ -867,7 +867,7 @@ body .ui-tooltip {
 ----------------------------------*/
 
 #notices {
-	margin-right: 90px;
+	margin-right: 98px;
 	margin-bottom: $padding;
 
 	.container {
@@ -877,31 +877,34 @@ body .ui-tooltip {
 	.notice-remove {
 		float: right;
 	}
+
+	.fa {
+		margin-right: 8px;
+	}
 }
 
 .ui-state-highlight,
 .ui-widget-content .ui-state-highlight,
 .ui-widget-header .ui-state-highlight {
-	border: 1px solid #fcefa1;
-	background: #fbf9ee;
-	color: #363636;
+	background: #585630;
+	color: #fff;
 }
 .ui-state-highlight a,
 .ui-widget-content .ui-state-highlight a,
 .ui-widget-header .ui-state-highlight a {
-	color: #363636;
+	color: #fff;
 }
 .ui-state-error,
 .ui-widget-content .ui-state-error,
 .ui-widget-header .ui-state-error {
-	border: 1px solid #cd0a0a;
-	background: #fef1ec url(images/ui-bg_glass_95_fef1ec_1x400.png) 50% 50% repeat-x;
-	color: #cd0a0a;
+	background: #562F32 ;
+	color: #fff;
+	font-weight: 400;
 }
 .ui-state-error a,
 .ui-widget-content .ui-state-error a,
 .ui-widget-header .ui-state-error a {
-	color: #cd0a0a;
+	color: #fff;
 }
 .ui-state-error-text,
 .ui-widget-content .ui-state-error-text,

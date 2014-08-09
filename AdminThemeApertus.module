@@ -5,8 +5,8 @@ class AdminThemeApertus extends AdminTheme implements Module, ConfigurableModule
 	public static function getModuleInfo() {
 		return array(
 			'title' => 'Apertus Admin Theme',
-			'version' => 1,
-			'summary' => 'Minimal admin theme that supports all ProcessWire features.',
+			'version' => 001,
+			'summary' => 'Minimal admin theme for developers',
 			'autoload' => 'template=admin'
 			); 
 	}
@@ -34,6 +34,7 @@ class AdminThemeApertus extends AdminTheme implements Module, ConfigurableModule
 		$field = wire('modules')->get('InputfieldText');
 		$field->name = 'color';
 		$field->label = "Apertus main color";
+		$field->description = "Please provide a hex, rgb(a), hsl(a), or named CSS value";
 		if(isset($data['color'])) $field->value = $data['color'];
 		$inputfields->add($field);
 

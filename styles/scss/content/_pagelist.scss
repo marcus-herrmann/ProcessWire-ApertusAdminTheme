@@ -44,7 +44,7 @@
 	.PageList .actions a,
 	.PageListMoveNote a {
 		/* action links */
-		color: $action-link-color; 
+		color: $action-link-color;
 		padding: 0 5px;
 		display: inline-block;
 		font-size: $action-link-font-size; 
@@ -94,7 +94,6 @@
 
 				&:hover {
 					text-decoration: underline;
-					color: $pagelist-link-hover-color; 
 
 					i {
 						text-decoration: none; 
@@ -103,13 +102,13 @@
 
 				&:active {
 					text-decoration: underline;
-					color: $pagelist-link-active-color; 
+					color: $pagelist-link-active-color;
 				}
 
 				i {
 					/* icon */
 					padding: 0 0.25em 0 0;
-					color: $pagelist-link-icon-color; 
+					color: $pagelist-link-icon-color;
 
 					&.PageListStatusIcon {
 						color: #777;
