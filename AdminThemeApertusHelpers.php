@@ -3,7 +3,7 @@
 /**
  * AdminThemeDefaultHelpers.php
  * 
- * Rendering helper functions for use with ProcessWire admin theme.
+ * Rendering helper functions for use with ProcessWire ApertusAdminTheme.
  * 
  * __('FOR TRANSLATORS: please translate the file /wire/templates-admin/default.php rather than this one.'); 
  *
