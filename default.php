@@ -16,7 +16,7 @@ if(!isset($content)) $content = '';
 	
 $searchForm = $user->hasPermission('page-edit') ? $modules->get('ProcessPageSearch')->renderSearchForm() : '';
 
-$config->styles->prepend($config->urls->adminTemplates . "styles/sass/main.css?v=7");
+$config->styles->prepend($config->urls->adminTemplates . "styles/main.css");
 $config->styles->append($config->urls->root . "wire/templates-admin/styles/font-awesome/css/font-awesome.min.css"); 
 $config->scripts->append($config->urls->root . "wire/templates-admin/scripts/inputfields.js?v=5"); 
 $config->scripts->append($config->urls->adminTemplates . "scripts/main.js?v=5");
@@ -36,64 +36,119 @@ $helpers = new AdminThemeApertusHelpers();
 	<title><?php echo $helpers->renderBrowserTitle(); ?></title>
 
 	<script type="text/javascript"><?php echo $helpers->renderJSConfig(); ?></script>
-
 	<?php foreach($config->styles as $file) echo "\n\t<link type='text/css' href='$file' rel='stylesheet' />"; ?>
-
 	<?php foreach($config->scripts as $file) echo "\n\t<script type='text/javascript' src='$file'></script>"; ?>
+	<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+
+	<style>
+		a,
+		.Inputfields .InputfieldStateToggle i.toggle-icon,
+		input[type="text"],
+		input[type="password"] {
+			color: <?php $helpers->renderMainColor(); ?>;
+		}
+
+		.header-main,
+		.header-main a {
+			color: #fff;
+		}
+
+		.header-main {
+			background: <?php $helpers->renderMainColor(); ?>;
+		}
+
+		button,
+		.ui-button,
+		li.action a, .actions a,
+		.PageList .actions a,
+		.PageListMoveNote a,
+		.header-main,
+		ul.WireTabs li .on {
+			background: <?php $helpers->renderMainColor(); ?>;
+		}
+
+		input[type="text"],
+		input[type="password"],
+		textarea {
+			border: 1px solid <?php $helpers->renderMainColor(); ?>;
+		}
+
+	</style>
 
 </head>
 <body class='<?php echo $helpers->renderBodyClass(); ?>'>
 
-	<?php echo $helpers->renderAdminNotices($notices); ?>
-
-	<div id="masthead" class="masthead ui-helper-clearfix">
+	<div class="header-main ui-helper-clearfix">
+		<?php
+		$helpers->renderEnvironmentIndicator();
+		?>
 		<div class="container">
 
-			<a id='logo' href='<?php echo $config->urls->admin?>'><img width='130' src="<?php echo $config->urls->adminTemplates?>styles/images/logo.png" alt="ProcessWire" /></a>
+			<h1 class="logo-main">
+				<a href='<?php echo $config->urls->admin?>'>
+					<?php $helpers->renderSiteName(); ?>
+				</a>
+			</h1>
 
-			<?php 
+			<section class="module-pagetree">
+			<?php
 			if($user->isLoggedin()) {
+				echo "<h2 class='section-headline'>Search Project</h2>";
 				echo $searchForm;
 				echo "\n\n<ul id='topnav'>" . $helpers->renderTopNavItems() . "</ul>";
 			}
 			?>
+			</section>
 
-		</div>
+			<?php if($config->debug && $this->user->isSuperuser())
+				include($config->paths->root . '/wire/templates-admin/debug.inc'); ?>
 
-		<div class="container">
-			<p>
-				<?php if($user->isLoggedin()): ?>
-					<span id='userinfo'>
-				<i class='fa fa-user'></i>
-						<?php
-						if($user->hasPermission('profile-edit')): ?>
-							<i class='fa fa-angle-right'></i> <a class='action' href='<?php echo $config->urls->admin; ?>profile/'><?php echo $user->name; ?></a> <i class='fa fa-angle-right'></i>
-						<?php endif; ?>
-						<a class='action' href='<?php echo $config->urls->admin; ?>login/logout/'><?php echo $helpers->_('Logout'); ?></a>
-			</span>
-				<?php endif; ?>
-				ProcessWire <?php echo $config->version . ' <!--v' . $config->systemVersion; ?>--> &copy; <?php echo date("Y"); ?>
-			</p>
+			<section class="module-forumsearch">
+			<h2 class="section-headline">Search Forums</h2>
+			<?php $helpers->renderForumSearch(); ?>
+			</section>
 
-			<?php if($config->debug && $this->user->isSuperuser()) include($config->paths->root . '/wire/templates-admin/debug.inc'); ?>
-		</div>
-	</div><!--/#masthead-->
+			<section class="module-usefullinks">
+			<h2 class="section-headline">Useful links</h2>
+			<?php $helpers->renderUsefulLinks(); ?>
+			</section>
 
-	<div id='breadcrumbs'>
-		<div class='container'>
+			<?php 	if($user->isSuperuser()) : ?>
 
-			<?php 
-			if($page->process == 'ProcessPageList' || ($page->name == 'lister' && $page->parent->name == 'page')) {
-				echo $helpers->renderAdminShortcuts(); 
-			}
+			<section class="module-apertus-meta">
+			<?php
+				$helpers->renderAdminThemeConfigLink();
 			?>
+			</section>
 
-			<ul class='nav'><?php echo $helpers->renderBreadcrumbs(); ?></ul>
+			<?php endif; ?>
+
+			<section class="module-processwire-meta">
+				ProcessWire
+				<?php echo $config->version . ' <!--v' . $config->systemVersion; ?>--> &copy; <?php echo date("Y"); ?>
+			</section>
 
 		</div>
-	</div><!--/#breadcrumbs-->
+	</div>
 
-	<div id="content" class="content fouc_fix">
+
+	<div class="main-content fouc_fix">
+		<?php echo $helpers->renderAdminNotices($notices); ?>
+
+		<div class="module-breadcrumbs">
+			<div class='container'>
+
+				<?php
+				if($page->process == 'ProcessPageList' || ($page->name == 'lister' && $page->parent->name == 'page')) {
+					echo $helpers->renderAdminShortcuts();
+				}
+				?>
+
+				<ul class='nav'><?php echo $helpers->renderBreadcrumbs(); ?></ul>
+
+			</div>
+		</div><!--/#breadcrumbs-->
+
 		<div class="container">
 
 			<?php 
@@ -103,11 +158,25 @@ $helpers = new AdminThemeApertusHelpers();
 			?>
 
 		</div>
+
+		<footer class="footer-main">
+
+			<nav class="module-footnav">
+				<ul>
+					<li><a href="<?php echo $config->urls->admin; ?>module/?reset=2" title="Search for new Modules"><i class="fa fa-refresh"></i><span>Search for new Modules</span></a></li>
+					<li><a href="<?php echo $pages->get('/')->url; ?>" title="View Site"><i class="fa fa-eye"></i><span>View Site</span></a></li>
+
+					<li><a href="<?php echo $config->urls->admin; ?>access/users" title="Users"><i class="fa fa-user"></i><span>Users</span></a></li>
+					<li><a href="<?php echo $config->urls->admin; ?>login/logout" title="Logout"><i class="fa fa-power-off"></i><span>Logout</span></a></li>
+				</ul>
+			</nav>
+
+		</footer>
+
 	</div><!--/#content-->
 
-	<div id="footer" class="footer">
 
-	</div><!--/#footer-->
+
 
 </body>
 </html>

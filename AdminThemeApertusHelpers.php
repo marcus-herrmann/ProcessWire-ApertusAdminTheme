@@ -365,7 +365,101 @@ class AdminThemeApertusHelpers extends WireData {
 		if(wire('config')->js('JqueryWireTabs')) $bodyClass .= " hasWireTabs";
 		return $bodyClass; 
 	}
-	
+
+	/**
+	 * Render the forum search form
+	 *
+	 * @return string
+	 *
+	 */
+	public function renderForumSearch() {
+			echo "<form
+					action='https://processwire.com/talk/index.php?app=core&amp;module=search&amp;do=search'
+					method='post'>
+						<fieldset>
+							<input type='text' name='search_term' tabindex='100'>
+							<input type='submit' value='Search'>
+						</fieldset>
+					</form>";
+	}
+
+	/**
+	 * Render useful links
+	 *
+	 * @return string
+	 *
+	 */
+
+	public function renderUsefulLinks() {
+
+		$links = array(
+			'API Documentation' => "https://processwire.com/api/",
+			'API Cheatsheet' => 'http://cheatsheet.processwire.com/',
+			'Selectors' => 'https://processwire.com/api/selectors/',
+			'Captain Hook' => 'http://processwire.com/api/hooks/captain-hook/',
+			'Tutorials' => 'https://processwire.com/docs/tutorials/');
+
+		echo "<ul class='module-usefullinks-list'>";
+		foreach ($links as $label => $url) {
+			echo "<li  class='module-usefullinks__item'><i class='fa fa-book'></i> <a href='" . $url . "'>" . $label . "</a></li>";
+		}
+		echo "</ul>";
+
+	}
+
+	/**
+	 * Render site name, when empty default to "ProcessWire"
+	 *
+	 * @return string
+	 *
+	 */
+
+	public function renderSiteName() {
+		echo (wire('modules')->get('AdminThemeApertus')->sitename ?
+			  wire('modules')->get('AdminThemeApertus')->sitename : 'ProcessWire' );
+	}
+
+
+	/**
+	 * Render main color for inline css use
+	 *
+	 * @return string
+	 *
+	 */
+
+	public function renderMainColor() {
+		echo (wire('modules')->get('AdminThemeApertus')->color ?
+			wire('modules')->get('AdminThemeApertus')->color : '#2c3e50' );
+	}
+
+
+	/**
+	 * Render environment indicator
+	 *
+	 * @return string
+	 *
+	 */
+
+	public function renderEnvironmentIndicator() {
+		$environment = wire('modules')->get('AdminThemeApertus')->environmentindicator;
+
+		if ($environment) {
+			echo "<div class='module-environmentindicator module-environmentindicator--" .  strtolower($environment) . "'><i class='fa fa-code'></i> " .$environment . "</div>";
+		}
+	}
+
+
+	/**
+	 * Render admin theme config link
+	 *
+	 * @return string
+	 *
+	 */
+
+	public function renderAdminThemeConfigLink() {
+		echo "<a href='" . wire("config")->urls->admin . "module/edit?name=AdminThemeApertus'><i class='fa fa-tasks'></i> Configure Admin Theme</a>";
+	}
+
 	/**
 	 * Render the required javascript 'config' variable for the document <head>
 	 *
