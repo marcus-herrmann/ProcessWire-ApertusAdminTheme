@@ -41,7 +41,7 @@ I named it "Apertus" ([latin for open, uncovered](http://en.wiktionary.org/wiki/
 This is a pre-release (0.0.1) needing current dev version of PW to prepare for ProcessWire 2.5. **Please help me improving the theme by [reporting bugs on GitHub](https://github.com/marcus-herrmann/ProcessWire-ApertusAdminTheme/issues).** Thanks! :)
 
 ## Roadmap
-Things I intend to implement in future/change versions:
+Things I intend/change to implement in future versions:
 
 * Making useful links configurable
 * Proper responsive behaviour
