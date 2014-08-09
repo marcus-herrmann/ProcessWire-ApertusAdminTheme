@@ -38,7 +38,7 @@ The design of this Admin Theme is based on my [Knowledge Base Site Profile](http
 
 I named it "Apertus" ([latin for open, uncovered](http://en.wiktionary.org/wiki/apertus)) because of the default state of the main navigation (Page, Modules, Access,...).
 
-This is a pre-release (0.0.1) needing current dev version of PW to prepare for ProcessWire 2.5. **Please help me improving the theme by [reporing bugs on GitHub](https://github.com/marcus-herrmann/ProcessWire-ApertusAdminTheme/issues).** Thanks! :)
+This is a pre-release (0.0.1) needing current dev version of PW to prepare for ProcessWire 2.5. **Please help me improving the theme by [reporting bugs on GitHub](https://github.com/marcus-herrmann/ProcessWire-ApertusAdminTheme/issues).** Thanks! :)
 
 ## Roadmap
 Things I intend to implement in future/change versions:
