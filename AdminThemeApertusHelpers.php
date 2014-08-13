@@ -375,7 +375,8 @@ class AdminThemeApertusHelpers extends WireData {
 	public function renderForumSearch() {
 			echo "<form
 					action='https://processwire.com/talk/index.php?app=core&amp;module=search&amp;do=search'
-					method='post'>
+					method='post'
+					target='_blank'>
 						<fieldset>
 							<input type='text' name='search_term' tabindex='100'>
 							<input type='submit' value='Search'>
