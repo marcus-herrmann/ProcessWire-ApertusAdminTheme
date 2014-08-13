@@ -443,7 +443,7 @@ class AdminThemeApertusHelpers extends WireData {
 	public function renderEnvironmentIndicator() {
 		$environment = wire('modules')->get('AdminThemeApertus')->environmentindicator;
 
-		if ($environment) {
+		if ($environment && $environment != "none") {
 			echo "<div class='module-environmentindicator module-environmentindicator--" .  strtolower($environment) . "'><i class='fa fa-code'></i> " .$environment . "</div>";
 		}
 	}

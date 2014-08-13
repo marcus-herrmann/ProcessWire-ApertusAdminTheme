@@ -153,3 +153,28 @@
 	margin-bottom: 5px; 
 }
 
+.pagelist-id {
+	font-size: 0.833333em;
+	font-weight: bold;
+	margin-right: $padding/3;
+
+	a:hover & {
+		text-decoration: none;
+	}
+}
+
+.PageListItem > a span.pagelist-id + span:before {
+	content: '';
+}
+
+.main-content .PageList .PageListItem>a.PageListPage:hover {
+	text-decoration: none;
+}
+
+.main-content .PageList .PageListItem>a:hover .label_title {
+	text-decoration: underline;
+}
+
+.fa.ui-priority-secondary {
+	opacity: 1;
+}

@@ -93,7 +93,7 @@ $helpers = new AdminThemeApertusHelpers();
 			<section class="module-pagetree">
 			<?php
 			if($user->isLoggedin()) {
-				echo "<h2 class='section-headline'>Search Project</h2>";
+				echo "<h2 class='section-headline'>. $this->_('Search Project') .</h2>";
 				echo $searchForm;
 				echo "\n\n<ul id='topnav'>" . $helpers->renderTopNavItems() . "</ul>";
 			}
@@ -104,13 +104,15 @@ $helpers = new AdminThemeApertusHelpers();
 				include($config->paths->root . '/wire/templates-admin/debug.inc'); ?>
 
 			<section class="module-forumsearch">
-			<h2 class="section-headline">Search Forums</h2>
-			<?php $helpers->renderForumSearch(); ?>
+			<?php echo "<h2 class="section-headline">. $this->_('Search Forums') .</h2>";
+				$helpers->renderForumSearch(); 
+			?>
 			</section>
 
 			<section class="module-usefullinks">
-			<h2 class="section-headline">Useful links</h2>
-			<?php $helpers->renderUsefulLinks(); ?>
+			<?php echo "<h2 class="section-headline">. $this->_('Useful links') .</h2>";
+				$helpers->renderUsefulLinks(); 
+			?>
 			</section>
 
 			<?php 	if($user->isSuperuser()) : ?>
